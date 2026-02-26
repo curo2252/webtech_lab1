@@ -8,23 +8,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <header class="header">
         <h1>Управление задачами (MERN Stack)</h1>
     </header>
-
-    <main>
+       
+    <main class ="main">
         <section id="input-area">
-            <input type="text" id="task-name" placeholder="Наименование задачи...">
-            <button type="button">Добавить</button>
+            <input class= "input" type="text" id="task-name" placeholder="Наименование задачи...">
+          <button class="button" onclick="alert('Задача добавлена!')">Добавить</button>
         </section>
 
-        <hr>
+        
 
-        <section id="list-area">
-            <h2>Список текущих дел:</h2>
-            <p>1. Установка и настройка Visual Studio Code</p>
-            <p>2. Инициализация репозитория Git</p>
-            <p>3. Настройка расширения Live Server</p>
+        <section class="list-area" id="list-area">
+            <h2 class="h2">Список текущих дел:</h2>
+            <ul class="ul">
+             <li>Установка и настройка Visual Studio Code</li>
+             <li>Инициализация репозитория Git</li>
+             <li>Настройка расширения Live Server</li>
+           </ul>
         </section>
     </main>
 </body>
