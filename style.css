@@ -1,9 +1,12 @@
 body {
-    background-color: #f0f2f5;
+    background-image: url('a2f1463e-29de-494e-8398-d32a3e22f171.jpg'); /* путь к картинке */
+    background-size: cover;       /* растягивает изображение на весь экран */
+    background-position: center;  /* центрирует изображение */
+    background-repeat: no-repeat; /* не повторять */
     font-family: 'Arial', sans-serif;
     margin: 0;
+    margin-top: 180px;
     padding: 0;
-    border-radius: 0 0 10px 10px;
 }
 
 .header{
@@ -72,7 +75,7 @@ body {
     background-color: #f0f0f0;
     border-radius: 8px;
     position: relative;
-    padding-left: 10px;
+    padding-right: 2px;
     font-size: 16px;
 }
 
