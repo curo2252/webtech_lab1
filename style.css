@@ -1,8 +1,8 @@
 body {
-    background-image: url('a2f1463e-29de-494e-8398-d32a3e22f171.jpg'); /* путь к картинке */
-    background-size: cover;       /* растягивает изображение на весь экран */
-    background-position: center;  /* центрирует изображение */
-    background-repeat: no-repeat; /* не повторять */
+    background-image: url('background.jpg'); 
+    background-size: cover;       
+    background-position: center;  
+    background-repeat: no-repeat; 
     font-family: 'Arial', sans-serif;
     margin: 0;
     margin-top: 180px;
@@ -55,12 +55,14 @@ body {
 .list-area {
     margin-top: 20px;
     padding: 20px;
-    background-color: #f0f0f0;
+    background-color: #160e52;
     border-radius: 10px;
 }
-.h2 {margin-top: -5px;
-    margin-bottom: 5px;
-    color: #160e52;
+.h2 {
+    text-align: center;
+    margin-top: -5px;
+    margin-bottom: 15px;
+    color: #ffffff;
 }
 .task-list{
     margin-top: 0;
@@ -70,17 +72,70 @@ body {
 }
 .task-list li {
     counter-increment: task;
-    padding: 5px 10px;
+    width: 73.5%;
+    padding: 5px 40px;
     margin-bottom: 5px;
+    border-radius: 8px 0 0 8px;
     background-color: #f0f0f0;
-    border-radius: 8px;
     position: relative;
     padding-right: 2px;
     font-size: 16px;
 }
+li span {
+    margin-left: -20px;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.delete-button {
+    padding: 6px 15px;
+   
+    background-color: #ff4d4d;
+    border: none;
+    color: white;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    font-size: 14px;
+    position: absolute;
+    right: 540px;
+    top: 58%;
+    
+    transform: translateY(-50%);
+}
+.delete-button1 {
+    padding: 5.8px 12px;
+   
+    background-color: #ff4d4d;
+    border: none;
+    color: white;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    font-size: 14px;
+    position: absolute;
+    right: 540px;
+    top: 67.2%;
+    
+    transform: translateY(-50%);
+}
+.delete-button2 {
+    padding: 5.8px 12px;
+   
+    background-color: #ff4d4d;
+    border: none;
+    color: white;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    font-size: 14px;
+    position: absolute;
+    right: 540px;
+    top: 62.6%;
+    
+    transform: translateY(-50%);
+}
 
-.task-list li::before {
-    content: "•";            
+.task-list li::before {     
+   padding-left: 10px;
+    content: "•";     
     position: absolute;
     left: 0;
     color: #160e52;
