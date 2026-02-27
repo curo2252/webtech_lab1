@@ -35,15 +35,19 @@ body {
 }
 .input {
     flex: 1;
-    padding: 10px 92px;
+    padding: 10px 97px;
     font-size: 16px;
-    border: 2px solid #ccc;
+    border: 2px solid #160e52;
     border-radius: 8px 0 0 8px;
     outline: none;
 }
+input::placeholder {
+    color: #160e52;
+    opacity: 1;
+}
 
 .button {
-    padding: 10px 20px;
+    padding: 10px 15px;
     background-color: #160e52;
     border: 2px solid #160e52;
     color: white;
