@@ -3,34 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Lab 1 - Настройка окружения</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="header">
         <h1>Управление задачами (MERN Stack)</h1>
+
     </header>
        
-    <main class ="main">
-        <section id="input-area">
-        <input class= "input" type="text" id="task-name" placeholder="Наименование задачи...">
-        <button class="button">Добавить</button>
+        <main class ="main">
+             <section id="input-area">
+                  <input class= "input" type="text" id="task-name" placeholder="Наименование задачи...">
+                  <button class="button">+</button>
+            
         </section>
 
-        
 
         <section class="list-area" id="list-area">
             <h2 class="h2">Список текущих дел:</h2>
             <ul class="task-list">
-             <button class="delete-button">Удалить</button>
-             <li><span>Установка и настройка Visual Studio Code</span></li>
-             <button class="delete-button1">Удалить</button>
-             <li><span>Инициализация репозитория Git</span></li>
-             <button class="delete-button2">Удалить</button>
-             <li><span>Настройка расширения Live Server</span></li>
+                 <li>
+                     <input type="checkbox" class="checkbox">
+                     <span>Установка и настройка Visual Studio Code</span>
+                     <button class="delete-button">x</button>
+                </li>
+                <li>
+                    <input type="checkbox" class="checkbox">
+                    <span>Инициализация репозитория Git</span>
+                    <button class="delete-button">x</button>
+                </li>
+                <li>
+                    <input type="checkbox" class="checkbox">
+                    <span>Настройка расширения Live Server</span>
+                    <button class="delete-button">x</button>
+                </li>
            </ul>
         </section>
     </main>
+    <script src="script.js"></script>
 </body>
 </html>
