@@ -1,34 +1,35 @@
 body {
-    font-family: 'Arial', sans-serif;
     margin: 0;
-    padding: 0;
     min-height: 100vh;
+    background-color: #0A0720;
+    background: linear-gradient(
+      to top,
+      #9C92C7 0%,   
+      #6448A0 40%,
+      #27205F 70%,
+      #0A0720 100%  
+    );
+    background-attachment: fixed;
+    /* Добавил шрифт для красоты, если нужен - оставь */
+    font-family: sans-serif; 
 }
 
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: -1;
-}
 #error {
     position: fixed;
-    top: 30px;
+    top: -115px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #ff4d4d;
+    /* Стеклянный красный фон */
+    background: rgba(255, 77, 77, 0.579);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    
     color: white;
     padding: 14px 28px;
     border-radius: 14px;
     font-size: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); /* Мягкая тень */
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
@@ -39,13 +40,19 @@ body::before {
 }
 
 .header {
-    background-color: #160e52;
+    /* Стеклянный эффект для шапки */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: none; /* Убираем нижнюю рамку, чтобы сливалось с main */
+    
     padding: 20px;
     text-align: center;
     color: white;
     font-size: 10px;
     border-radius: 30px 30px 0 0;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
     max-width: 500px;
     width: calc(100% - 40px);
     height: 80px;
@@ -58,9 +65,16 @@ body::before {
     width: calc(100% - 40px);
     margin: 0 auto 50px;
     padding: 20px;
-    background-color: #ffffff;
+    
+    /* Стеклянный эффект для основы */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: none; /* Убираем верхнюю рамку, чтобы сливалось с header */
+    
     border-radius: 0 0 30px 30px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     box-sizing: border-box;
 }
 
@@ -69,7 +83,6 @@ body::before {
     align-items: center;
     gap: 12px;
     margin-bottom: 30px;
-    
 }
 
 .input {
@@ -79,26 +92,32 @@ body::before {
     width: 100%;
     padding: 0 18px;
     font-size: 16px;
-    box-shadow: 0 2px 6px #160e52;
+    
+    /* Стеклянный инпут */
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white; /* Белый текст */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     
     border-radius: 14px;
-    border: none;
     outline: none;
     box-sizing: border-box;
+    transition: 0.3s;
 }
 
-input:hover {
-    color: #ffffff;
-    background-color: #160e52;
-    box-shadow: 0 2px 6px #160e52;
+.input:hover, .input:focus {
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-input::placeholder {
-    color: #160e52;
+.input::placeholder {
+    
+    color: rgba(255, 255, 255, 0.6); /* Полупрозрачный белый плейсхолдер */
 }
 
-input:hover::placeholder {
-    color: #ffffff;
+.input:hover::placeholder {
+    
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .button {
@@ -106,10 +125,13 @@ input:hover::placeholder {
     width: 45px;
     height: 45px;
     min-width: 45px;
-    background-color: #ffffff;
-    box-shadow: 0 2px 6px #160e52;
-    border: none;
-    color: #160e52;
+    
+    /* Стеклянная кнопка */
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    
     border-radius: 50%;
     cursor: pointer;
     font-size: 35px;
@@ -120,15 +142,15 @@ input:hover::placeholder {
 }
 
 .button:hover {
-    background-color: #160e52;
-    color: rgb(255, 255, 255);
-    box-shadow: 0 2px 6px #160e52;
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+   
 }
 
 .list-area {
     margin-top: 20px;
     padding: 20px 0 0 0;
-    background-color: #ffffff;
+    background: transparent; /* Убрал сплошной цвет, чтобы было видно общее стекло main */
     border-radius: 30px;
 }
 
@@ -136,7 +158,8 @@ input:hover::placeholder {
     text-align: center;
     margin-top: -40px;
     margin-bottom: 15px;
-    color: #160e52;
+    color: white; /* Сделал белым для читаемости на стекле */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Легкая тень для текста */
 }
 
 .task-list {
@@ -154,10 +177,19 @@ input:hover::placeholder {
     padding: 14px 16px;
     margin-bottom: 12px;
     border-radius: 14px;
-    background: white;
-    box-shadow: 0 2px 6px #160e52;
+    
+    /* Стеклянная задача */
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    
     transition: 0.2s ease;
     box-sizing: border-box;
+}
+
+.task-list li:hover {
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .task-list li::before {
@@ -171,21 +203,25 @@ input:hover::placeholder {
     height: 16px;
     min-width: 16px;
     border-radius: 4px;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 2px 4px #160e52;
+    
+    /* Стеклянный чекбокс */
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+    
     cursor: pointer;
     position: relative;
     flex-shrink: 0;
+    transition: 0.2s;
 }
 
-.task-list li input[type="checkbox"]:checked {
-    background-color: #160e52;
-}
+
 
 .task-list li input[type="checkbox"]:checked::after {
     content: "✓";
     position: absolute;
-    color: white;
+    color: #ffffff; /* Белая галочка на светлом фоне */
+    font-weight: bold;
     font-size: 11px;
     top: 50%;
     left: 50%;
@@ -204,20 +240,24 @@ input:hover::placeholder {
     width: 30px;
     height: 30px;
     min-width: 30px;
-    background-color: #ffffff;
-    box-shadow: 0 2px 6px #160e52;
-    border: none;
+    
+    /* Стеклянная кнопка удаления */
+    background: rgba(255, 77, 77, 0.2);
+    border: 1px solid rgba(255, 77, 77, 0.4);
     color: #ff4d4d;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    
     border-radius: 50%;
     cursor: pointer;
     font-size: 20px;
     line-height: 30px;
     text-align: center;
-    transition: background 0.2s, transform 0.2s;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
     flex-shrink: 0;
 }
 
 .delete-button:hover {
-    background-color: #ff1a1a;
-    color: white;
+    background: rgba(210, 10, 10, 0.303);
+    color:  #ff4d4d;
+    
 }

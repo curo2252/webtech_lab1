@@ -16,7 +16,7 @@ function createTaskElement(taskText) {
 
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('delete-button');
-    deleteButton.textContent = 'x';
+    deleteButton.textContent = '✖';
 
     // 3. Удаление задачи при клике на кнопку "x"
     deleteButton.addEventListener('click', function () {
