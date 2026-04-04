@@ -1,4 +1,14 @@
+html, body {
+    height: 100%;
+    margin: 0;
+   
+}
+
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
     margin: 0;
     min-height: 100vh;
     background-color: #0A0720;
@@ -64,6 +74,7 @@ body {
     width: calc(100% - 40px);
     margin: 0 auto 50px;
     padding: 20px;
+    
     
     /* Стеклянный эффект для основы */
     background: rgba(255, 255, 255, 0.1);
@@ -259,4 +270,8 @@ body {
     background: rgba(210, 10, 10, 0.303);
     color:  #ff4d4d;
     
+}
+footer{  
+    background:  #9C92C7 0% ;  
+
 }
