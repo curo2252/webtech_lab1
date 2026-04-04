@@ -1,30 +1,18 @@
-*, *::before, *::after {
-    box-sizing: border-box;
+body {
     margin: 0;
-    padding: 0;
-}
- 
-/* ===== FULL PAGE GRADIENT FIX ===== */
-html {
-    min-height: 100%;
+    min-height: 100vh;
+    background-color: #0A0720;
     background: linear-gradient(
-        to top,
-        #9C92C7 0%,
-        #6448A0 40%,
-        #27205F 70%,
-        #0A0720 100%
+      to top,
+      #9C92C7 0%,   
+      #6448A0 40%,
+      #27205F 70%,
+      #0A0720 100%  
     );
     background-attachment: fixed;
+    
 }
- 
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    min-height: 100dvh;
-    background: transparent;
-    overflow-x: hidden;
-}
+
 #error {
     position: fixed;
     top: -115px;
@@ -76,7 +64,6 @@ body {
     width: calc(100% - 40px);
     margin: 0 auto 50px;
     padding: 20px;
-    
     
     /* Стеклянный эффект для основы */
     background: rgba(255, 255, 255, 0.1);
