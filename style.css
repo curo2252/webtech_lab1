@@ -11,8 +11,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     min-height: 100dvh;
-    
-    background-color: #0A0720;
+    background-color: #9C92C7; /* fallback color matching gradient bottom */
     background: linear-gradient(
       to top,
       #9C92C7 0%,   
@@ -22,7 +21,13 @@ body {
     );
     background-attachment: fixed;
     overflow-x: hidden;
-    
+    margin: 0;
+    padding: 0;
+}
+
+body::after {
+    content: '';
+    flex: 1;
 }
 
 #error {
