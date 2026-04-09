@@ -10,7 +10,8 @@ body {
       #0A0720 100%  
     );
     background-attachment: fixed;
-    overflow: hidden;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: white;
 }
 
 #error {
