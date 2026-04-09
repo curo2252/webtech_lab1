@@ -10,7 +10,7 @@ body {
       #0A0720 100%  
     );
     background-attachment: fixed;
-    
+    overflow: hidden;
 }
 
 #error {
