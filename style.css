@@ -12,6 +12,7 @@ body {
     background-attachment: fixed;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         color: white;
+        overflow: hidden;
 }
 
 #error {
@@ -105,6 +106,19 @@ body {
     transition: 0.3s;
 }
 
+.hidden-date {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    border: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
 .input:hover, .input:focus {
     background: rgba(255, 255, 255, 0.25);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -140,6 +154,17 @@ body {
     transition: background 0.2s, transform 0.2s;
     flex-shrink: 0;
 }
+
+.date-button {
+    width: 45px;
+    height: 45px;
+    
+    padding: 0 ;
+    border-radius: 50%;
+    font-size: 25px;
+    line-height: 30px;
+}
+
 
 .button:hover {
     background: rgba(255, 255, 255, 0.3);
@@ -228,11 +253,21 @@ body {
     transform: translate(-50%, -50%);
 }
 
+.task-list li input[type="checkbox"]:checked + span {
+    color: #00ff00; /* Зеленый цвет для выполненных задач */
+}
+
 .task-list li span {
     flex: 1;
     display: block;
     word-break: break-word;
     margin-left: 0;
+}
+
+.task-date {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-left: 8px;
 }
 
 .delete-button {
