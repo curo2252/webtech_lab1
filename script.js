@@ -1,36 +1,50 @@
-// 1. Получаем ссылки на HTML-элементы
+// ====== ПОЛУЧЕНИЕ ЭЛЕМЕНТОВ DOM ======
 const taskInput = document.getElementById('task-name');
 const taskDateInput = document.getElementById('task-date');
 const pickDateButton = document.getElementById('pick-date-button');
 const addButton = document.getElementById('add-button');
 const clearAllButton = document.getElementById('clear-all-button');
-const taskList  = document.getElementById('task-list');
+const taskList = document.getElementById('task-list');
 
-// 2. Функция создания одного элемента задачи <li>
+
+// ====== ФОРМАТИРОВАНИЕ ДАТЫ ======
+// преобразует YYYY-MM-DD → DD.MM.YYYY
+function formatDate(isoDate) {
+    const [year, month, day] = isoDate.split('-');
+    return `${day}.${month}.${year}`;
+}
+
+
+// ====== СОЗДАНИЕ ЭЛЕМЕНТА ЗАДАЧИ ======
+// создаёт <li> с задачей, чекбоксом, датой и кнопкой удаления
 function createTaskElement(taskText, taskDate) {
     const li = document.createElement('li');
 
+    // чекбокс выполнения задачи
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.classList.add('checkbox');
 
+    // текст задачи
     const span = document.createElement('span');
     span.textContent = taskText;
 
+    // дата задачи (если есть)
     const dateSpan = document.createElement('span');
     dateSpan.classList.add('task-date');
     dateSpan.textContent = taskDate ? ` (${formatDate(taskDate)})` : '';
 
+    // кнопка удаления задачи
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('delete-button');
     deleteButton.textContent = '✖';
 
-    // 3. Удаление задачи при клике на кнопку "x"
-    deleteButton.addEventListener('click', function () {
+    // обработчик удаления одной задачи
+    deleteButton.addEventListener('click', () => {
         li.remove();
-        console.log(`Задача удалена: ${taskText}`);
     });
 
+    // собираем структуру задачи
     li.appendChild(checkbox);
     li.appendChild(span);
     li.appendChild(dateSpan);
@@ -39,45 +53,44 @@ function createTaskElement(taskText, taskDate) {
     return li;
 }
 
-// 4. Функция добавления задачи
-function formatDate(isoDate) {
-    const [year, month, day] = isoDate.split('-');
-    return `${day}.${month}.${year}`;
-}
 
+// ====== ДОБАВЛЕНИЕ ЗАДАЧИ ======
+// создаёт задачу и добавляет её в список
 function addTask() {
     const taskText = taskInput.value.trim();
     const taskDate = taskDateInput.value;
 
-    if (taskText === "") {
+    // защита от пустого ввода
+    if (!taskText) {
         const error = document.getElementById('error');
         error.classList.add('show');
-        setTimeout(function() {
-            error.classList.remove('show');
-        }, 2000);
+
+        setTimeout(() => error.classList.remove('show'), 2000);
         return;
     }
 
+    // создаём и добавляем задачу
     const newTask = createTaskElement(taskText, taskDate);
     taskList.appendChild(newTask);
+
+    // очистка полей после добавления
     taskInput.value = "";
     taskDateInput.value = "";
-    pickDateButton.textContent = 'Дата';
 }
 
 
-// 5. Навешиваем обработчики на уже существующие кнопки "x" в HTML
-document.querySelectorAll('.delete-button').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-        btn.closest('li').remove();
-    });
-});
-
-// 6. Клик по кнопке "+"
+// ====== КНОПКА ДОБАВЛЕНИЯ ======
 addButton.addEventListener('click', addTask);
 
-// 7. Кнопка выбора даты
-pickDateButton.addEventListener('click', function () {
+
+// ====== ДОБАВЛЕНИЕ ПО ENTER ======
+taskInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') addTask();
+});
+
+
+// ====== ОТКРЫТИЕ КАЛЕНДАРЯ ======
+pickDateButton.addEventListener('click', () => {
     if (typeof taskDateInput.showPicker === 'function') {
         taskDateInput.showPicker();
     } else {
@@ -85,29 +98,23 @@ pickDateButton.addEventListener('click', function () {
     }
 });
 
+
+// ====== АВТОДОБАВЛЕНИЕ ПО ВЫБОРУ ДАТЫ ======
 taskDateInput.addEventListener('change', function () {
-    if (this.value) {
-        pickDateButton.textContent = formatDate(this.value);
-    } else {
-        pickDateButton.textContent = 'Дата';
+    if (taskInput.value.trim() !== "") {
+        addTask();
     }
 });
 
-// 8. Клик по кнопке "Очистить все"
-clearAllButton.addEventListener('click', function() {
-    // Отмечаем все задачи как выполненные
+
+// ====== ОЧИСТКА ВСЕХ ЗАДАЧ ======
+clearAllButton.addEventListener('click', function () {
+    // отмечаем все задачи как выполненные (визуальный эффект)
     const checkboxes = document.querySelectorAll('.checkbox');
     checkboxes.forEach(cb => cb.checked = true);
-    
-    // Задержка для показа вычеркивания, затем удаление
+
+    // удаляем все задачи с небольшой задержкой
     setTimeout(() => {
         taskList.innerHTML = '';
     }, 1000);
-});
-
-// 9. Добавление задачи по нажатию Enter
-taskInput.addEventListener('keydown', function (e) {
-    if (e.key === 'Enter') {
-        addTask();
-    }
 });
